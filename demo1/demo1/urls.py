@@ -1,4 +1,4 @@
-"""test1 URL Configuration
+"""demo1 URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url,include
+from django.conf.urls import url
+from django.conf.urls import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # 在项目跟路由下通过url 以及 include指明应用路由的配置文件
-    url('',include('booktest.urls',namespace="booktest")),
+    url('',include('app1.urls',namespace="app1"))
 ]

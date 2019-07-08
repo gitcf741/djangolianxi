@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>当前问题{{ question.title }}</h1>
+<h2>请投票</h2>
+<ul>
+    <form action="{%  url 'app1:detail' question.id %}" method="post">
+    {% for tile in question.chiose_set.all  %}
+        {% if forloop.counter == 1 %}
+
+            <li><input checked type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}</li>
+        {% else %}
+            <input type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}
+        {% endif %}
+    {% endfor %}
+        <input type="submit" value="投票">
+
+    </form>
+
+
+
+</ul>
+
+
+</body>
+</html>

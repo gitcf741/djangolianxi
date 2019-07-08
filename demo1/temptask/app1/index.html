@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{% if username %}
+当前用户为:{{username}}<a href="{% url 'app1:logout' %}">退出</a>
+{% else %}
+没有用户
+{% endif %}
+
+
+
+
+<h1>此页面为首页</h1>
+
+    {%if questions %}
+        <ul>
+            {% for i in questions %}
+            <li><a href="/detail/{{i.id}}">{{forloop.counter}}--{{i.title}}</a> </li>
+            {% empty %}
+            <li>问题为空</li>
+            {% endfor %}
+
+        </ul>
+        {% else %}
+        <li>没有问题可以投票</li>
+        {% endif %}
+
+</body>
+</html>

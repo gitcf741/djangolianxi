@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>此页面为投票结果</h1>
+<h2>当前问题是{{ quese.title }}</h2>
+<h3>投票结果为</h3>
+    <ul>
+        {%  for c in quese.chiose_set.all %}
+
+        {% if forloop.counter %}
+
+        <li>{{.title}}得票  {{c.number}}</li>
+
+        {% endif %}
+        {% endfor %}
+    </ul>
+
+
+     <a href="{% url 'app1:index' %}">回到首页</a>
+
+</body>
+</html>
