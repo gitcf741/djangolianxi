@@ -13,6 +13,8 @@ def checklogin(fun):
         else:
             return redirect(reverse('app1:login'))
     return check
+
+
 # 装饰器
 @checklogin
 def index(request):

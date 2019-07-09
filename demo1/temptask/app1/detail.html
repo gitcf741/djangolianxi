@@ -1,30 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'app1/base.html' %}
+{% block title %}
+<title>投票页</title>
+
+{% endblock %}
+
+
+{% block container%}
+
 <h1>当前问题{{ question.title }}</h1>
 <h2>请投票</h2>
-<ul>
-    <form action="{%  url 'app1:detail' question.id %}" method="post">
-    {% for tile in question.chiose_set.all  %}
-        {% if forloop.counter == 1 %}
+    <ul>
 
-            <li><input checked type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}</li>
-        {% else %}
-            <input type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}
-        {% endif %}
-    {% endfor %}
-        <input type="submit" value="投票">
+        <form action="{%  url 'app1:detail' question.id %}" method="post">
+        {% for tile in question.chiose_set.all  %}
+            {% if forloop.counter == 1 %}
 
-    </form>
+                <li><input checked type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}</li>
+            {% else %}
+                <input type="radio" name="chiose" value="{{tile.id}}">{{ tile.title }}
+            {% endif %}
+        {% endfor %}
+            <input type="submit" value="投票">
 
-
+        </form>
 
 </ul>
 
 
-</body>
-</html>
+{% endblock %}
+
